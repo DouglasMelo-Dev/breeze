@@ -10,7 +10,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('module_permission', function (Blueprint $table) {
-            $table->id();
+            $table->id()->primary()->autoIncrement();
             $table->unsignedBigInteger('module_id');
             $table->unsignedBigInteger('permission_id');
             $table->timestamps();

@@ -12,8 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('group_permission', function (Blueprint $table) {
-            $table->id();
+            $table->id()->primary()->autoIncrement();
+            $table->unsignedBigInteger('group_id');
+            $table->unsignedBigInteger('module_permission_id');
             $table->timestamps();
+
+            //Chaves estrangeiras
+            $table->foreign('group_id')->references('id')->on('groups')->onDelete('cascade');
+            $table->foreign('module_permission_id')->references('id')->on('module_permission')->onDelete('cascade');
         });
     }
 
