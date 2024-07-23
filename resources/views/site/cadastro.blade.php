@@ -2,7 +2,7 @@
 @section('title', 'Cadastro')
 @section('content')
 
-    <div class="container bg-light mt-5 p-4 border">
+    {{-- <div class="container bg-light mt-5 p-4 border">
         <h1>Tela de Cadastro</h1>
 
         <h2>Controle de Acesso</h2>
@@ -42,6 +42,22 @@
             Apenas Visualizar
             </label>
         </div>
+    </div> --}}
+
+    <div class="container bg-light mt-5 p-4 border">
+        <h1>Cadastrar Usuario</h1>
+
+        <form action="{{ route('users.store') }}" method="POST">
+            @csrf
+            <input type="text" placeholder="Name...">
+            <input type="text" placeholder="E-mail...">
+            <input type="password" name="password" placeholder="Senha...">
+
+    <button type="submit">Salvar novo cadastro</button>
+        </form>
+
+
+
     </div>
 
 @endsection
